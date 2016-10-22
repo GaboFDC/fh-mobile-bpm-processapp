@@ -68,10 +68,12 @@ System.out.println(&quot;decisioncomment = &quot; + kcontext.getVariable(&quot;d
       <bpmn2:incoming>_59A89727-E1C6-462E-8635-C70097AE674A</bpmn2:incoming>
       <bpmn2:outgoing>_FCB16A3D-1335-407D-9CE7-150BEFD51729</bpmn2:outgoing>
       <bpmn2:script>String targetURL = &quot;https://seaq.openshift.feedhenry.com/api/v2/ag-push/rest/sender&quot;;
-String applicationId = &quot;0f5c3c4c-db93-47d0-8e84-3042ed8dfae1&quot;;
-String masterSecret = &quot;4de67a06-01f6-49e6-a13f-8594a480d527&quot;;
+String applicationId = &quot;f35c9189-5fa1-4ed4-a3c2-fcb95a67d76b&quot;;
+String masterSecret = &quot;dccf7942-629c-4ba9-a499-48ac7d89af00&quot;;
 byte[] basicAuthData = Base64.encodeBase64(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
-String pushMessage = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Your request is processed with ID 'VG000&quot; + kcontext.getProcessInstance().getId() + &quot;'.\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
+String = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Your request is processed with ID 'VG000&quot; + kcontext.getProcessInstance().getId() + &quot;'.\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
+
+System.out.println(&quot;Mensaje a enviar: &quot;+pushMessage)
 
 HttpURLConnection connection = null;  
   try {
@@ -255,6 +257,8 @@ String masterSecret = &quot;4de67a06-01f6-49e6-a13f-8594a480d527&quot;;
 byte[] basicAuthData = Base64.encodeBase64(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
 String pushMessage = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Your request with ID 'VG000&quot; + kcontext.getProcessInstance().getId() + &quot;' has been approved.\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
 
+System.out.println(&quot;Mensaje a enviar: &quot;+pushMessage)
+
 HttpURLConnection connection = null;  
   try {
     //Create connection
@@ -311,6 +315,8 @@ String applicationId = &quot;0f5c3c4c-db93-47d0-8e84-3042ed8dfae1&quot;;
 String masterSecret = &quot;4de67a06-01f6-49e6-a13f-8594a480d527&quot;;
 byte[] basicAuthData = Base64.encodeBase64(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
 String pushMessage = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Your request with ID 'VG000&quot; + kcontext.getProcessInstance().getId() + &quot;' has been rejected. Reason: &quot; + kcontext.getVariable(&quot;decisioncomment&quot;) + &quot;\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
+
+System.out.println(&quot;Mensaje a enviar: &quot;+pushMessage)
 
 HttpURLConnection connection = null;  
   try {
@@ -371,89 +377,89 @@ HttpURLConnection connection = null;
     <bpmndi:BPMNPlane id="_hD5BIDVaEeaefPgcMTAo1Q" bpmnElement="stp.my-process">
       <bpmndi:BPMNShape id="_hD5BITVaEeaefPgcMTAo1Q" bpmnElement="processStartEvent">
         <dc:Bounds height="30.0" width="30.0" x="120.0" y="165.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_1"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_hD5oMDVaEeaefPgcMTAo1Q" bpmnElement="_542D7AEA-7830-4AD0-B496-6F97BC349D76">
         <dc:Bounds height="80.0" width="100.0" x="195.0" y="140.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_2">
           <dc:Bounds height="14.0" width="37.0" x="226.0" y="173.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_hD5oMjVaEeaefPgcMTAo1Q" bpmnElement="_86641621-D67C-4B68-88DF-BE8880502604">
         <dc:Bounds height="80.0" width="100.0" x="340.0" y="140.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_3">
           <dc:Bounds height="42.0" width="69.0" x="355.0" y="159.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_hD6PQDVaEeaefPgcMTAo1Q" bpmnElement="_CE30F4EF-91DE-4815-B3DD-533EB8091B74">
         <dc:Bounds height="28.0" width="28.0" x="870.0" y="251.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_4"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_hD6PQTVaEeaefPgcMTAo1Q" bpmnElement="_08DDB1FA-668B-4F78-9A56-7AD47B8121A1">
         <dc:Bounds height="80.0" width="100.0" x="480.0" y="140.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_5">
           <dc:Bounds height="14.0" width="88.0" x="486.0" y="173.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_hD62UTVaEeaefPgcMTAo1Q" bpmnElement="_DDE36F1E-9077-45A4-9DBF-043D216E61A8" isMarkerVisible="true">
         <dc:Bounds height="40.0" width="40.0" x="625.0" y="160.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_6"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_hD62UzVaEeaefPgcMTAo1Q" bpmnElement="_03145B48-9D9E-44CA-BF64-DD835867F107">
         <dc:Bounds height="80.0" width="100.0" x="710.0" y="225.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_7">
           <dc:Bounds height="42.0" width="69.0" x="725.0" y="244.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_hD8EcDVaEeaefPgcMTAo1Q" bpmnElement="_589F48FD-4CF9-4F36-B6B5-AAB32124AA2B">
         <dc:Bounds height="80.0" width="100.0" x="710.0" y="60.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_8">
           <dc:Bounds height="42.0" width="69.0" x="725.0" y="79.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_hD8EcjVaEeaefPgcMTAo1Q" bpmnElement="_73ABCD63-64BE-4BEE-9A1C-3B399ECC84A8">
         <dc:Bounds height="28.0" width="28.0" x="855.0" y="86.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_9"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="_hD5oMTVaEeaefPgcMTAo1Q" bpmnElement="_E90E4E72-2594-4863-AAB0-F1BB8B849883" sourceElement="_hD5BITVaEeaefPgcMTAo1Q" targetElement="_hD5oMDVaEeaefPgcMTAo1Q">
         <di:waypoint xsi:type="dc:Point" x="135.0" y="180.0"/>
         <di:waypoint xsi:type="dc:Point" x="245.0" y="180.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_10"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="_hD5oMzVaEeaefPgcMTAo1Q" bpmnElement="_59A89727-E1C6-462E-8635-C70097AE674A" sourceElement="_hD5oMDVaEeaefPgcMTAo1Q" targetElement="_hD5oMjVaEeaefPgcMTAo1Q">
         <di:waypoint xsi:type="dc:Point" x="245.0" y="180.0"/>
         <di:waypoint xsi:type="dc:Point" x="390.0" y="180.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_11"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="_hD62UDVaEeaefPgcMTAo1Q" bpmnElement="_FCB16A3D-1335-407D-9CE7-150BEFD51729" sourceElement="_hD5oMjVaEeaefPgcMTAo1Q" targetElement="_hD6PQTVaEeaefPgcMTAo1Q">
         <di:waypoint xsi:type="dc:Point" x="390.0" y="180.0"/>
         <di:waypoint xsi:type="dc:Point" x="530.0" y="180.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_12"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="_hD62UjVaEeaefPgcMTAo1Q" bpmnElement="_63D5A2CA-8745-4F94-84CF-6762D8806DCE" sourceElement="_hD6PQTVaEeaefPgcMTAo1Q" targetElement="_hD62UTVaEeaefPgcMTAo1Q">
         <di:waypoint xsi:type="dc:Point" x="530.0" y="180.0"/>
         <di:waypoint xsi:type="dc:Point" x="645.0" y="180.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_13"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="_hD62VDVaEeaefPgcMTAo1Q" bpmnElement="_8763555E-C2C4-4E8D-A5FD-F6142D8B78D9" sourceElement="_hD62UTVaEeaefPgcMTAo1Q" targetElement="_hD62UzVaEeaefPgcMTAo1Q">
         <di:waypoint xsi:type="dc:Point" x="645.0" y="180.0"/>
         <di:waypoint xsi:type="dc:Point" x="760.0" y="265.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_14"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="_hD7dYDVaEeaefPgcMTAo1Q" bpmnElement="_8A8CC377-2C84-44FD-9D72-0D1C478D3AF4" sourceElement="_hD62UzVaEeaefPgcMTAo1Q" targetElement="_hD6PQDVaEeaefPgcMTAo1Q">
         <di:waypoint xsi:type="dc:Point" x="760.0" y="265.0"/>
         <di:waypoint xsi:type="dc:Point" x="884.0" y="265.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_15"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="_hD8EcTVaEeaefPgcMTAo1Q" bpmnElement="_459CD5C4-3CEB-4EA4-8596-64B8D96B5EB2" sourceElement="_hD62UTVaEeaefPgcMTAo1Q" targetElement="_hD8EcDVaEeaefPgcMTAo1Q">
         <di:waypoint xsi:type="dc:Point" x="645.0" y="180.0"/>
         <di:waypoint xsi:type="dc:Point" x="760.0" y="100.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_16"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="_hD8EczVaEeaefPgcMTAo1Q" bpmnElement="_7DE03BF8-AE92-4B74-A7D7-B7EEBAA2FC8E" sourceElement="_hD8EcDVaEeaefPgcMTAo1Q" targetElement="_hD8EcjVaEeaefPgcMTAo1Q">
         <di:waypoint xsi:type="dc:Point" x="760.0" y="100.0"/>
         <di:waypoint xsi:type="dc:Point" x="869.0" y="100.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_17"/>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
