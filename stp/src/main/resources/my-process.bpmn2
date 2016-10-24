@@ -60,7 +60,7 @@ System.out.println(&quot;decision = &quot; + kcontext.getVariable(&quot;decision
 System.out.println(&quot;decisioncomment = &quot; + kcontext.getVariable(&quot;decisioncomment&quot;));</bpmn2:script>
     </bpmn2:scriptTask>
     <bpmn2:sequenceFlow id="_E90E4E72-2594-4863-AAB0-F1BB8B849883" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" sourceRef="processStartEvent" targetRef="_542D7AEA-7830-4AD0-B496-6F97BC349D76"/>
-    <bpmn2:scriptTask id="_86641621-D67C-4B68-88DF-BE8880502604" drools:selectable="true" color:background-color="#fafad2" color:border-color="#000000" color:color="#000000" name="Send push &quot;Request received&quot; ">
+    <bpmn2:scriptTask id="_86641621-D67C-4B68-88DF-BE8880502604" drools:selectable="true" color:background-color="#fafad2" color:border-color="#000000" color:color="#000000" name="Send push &quot;Request received&quot; " scriptFormat="http://www.java.com/java">
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[Send push "Request received" ]]></drools:metaValue>
@@ -76,7 +76,7 @@ String pushMessage = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;
 System.out.println(&quot;Auth: &quot;+basicAuthData);
 System.out.println(&quot;Mensaje a enviar: &quot;+pushMessage);
 
-HttpURLConnection connection = null;  
+HttpURLConnection connection = null;
   try {
     //Create connection
     URL url = new URL(targetURL);
@@ -243,7 +243,7 @@ HttpURLConnection connection = null;
       <bpmn2:outgoing>_459CD5C4-3CEB-4EA4-8596-64B8D96B5EB2</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
     <bpmn2:sequenceFlow id="_63D5A2CA-8745-4F94-84CF-6762D8806DCE" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" sourceRef="_08DDB1FA-668B-4F78-9A56-7AD47B8121A1" targetRef="_DDE36F1E-9077-45A4-9DBF-043D216E61A8"/>
-    <bpmn2:scriptTask id="_03145B48-9D9E-44CA-BF64-DD835867F107" drools:selectable="true" color:background-color="#fafad2" color:border-color="#000000" color:color="#000000" name="Send push &quot;Request approved&quot;" scriptFormat="http://www.mvel.org/2.0">
+    <bpmn2:scriptTask id="_03145B48-9D9E-44CA-BF64-DD835867F107" drools:selectable="true" color:background-color="#fafad2" color:border-color="#000000" color:color="#000000" name="Send push &quot;Request approved&quot;" scriptFormat="http://www.java.com/java">
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[Send push "Request approved"]]></drools:metaValue>
