@@ -231,11 +231,6 @@ HttpURLConnection connection = null;
         <bpmn2:sourceRef>_08DDB1FA-668B-4F78-9A56-7AD47B8121A1_usernameOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>username</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:potentialOwner id="PotentialOwner_1" name="Potential Owner 1">
-        <bpmn2:resourceAssignmentExpression id="ResourceAssignmentExpression_1">
-          <bpmn2:formalExpression id="FormalExpression_1">bpmsAdmin</bpmn2:formalExpression>
-        </bpmn2:resourceAssignmentExpression>
-      </bpmn2:potentialOwner>
       <bpmn2:potentialOwner id="_hD3zADVaEeaefPgcMTAo1Q">
         <bpmn2:resourceAssignmentExpression id="_hD3zATVaEeaefPgcMTAo1Q">
           <bpmn2:formalExpression id="_hD3zAjVaEeaefPgcMTAo1Q">erics</bpmn2:formalExpression>
