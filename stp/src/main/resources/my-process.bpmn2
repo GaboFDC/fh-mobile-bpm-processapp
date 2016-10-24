@@ -60,7 +60,7 @@ System.out.println(&quot;decision = &quot; + kcontext.getVariable(&quot;decision
 System.out.println(&quot;decisioncomment = &quot; + kcontext.getVariable(&quot;decisioncomment&quot;));</bpmn2:script>
     </bpmn2:scriptTask>
     <bpmn2:sequenceFlow id="_E90E4E72-2594-4863-AAB0-F1BB8B849883" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" sourceRef="processStartEvent" targetRef="_542D7AEA-7830-4AD0-B496-6F97BC349D76"/>
-    <bpmn2:scriptTask id="_86641621-D67C-4B68-88DF-BE8880502604" drools:selectable="true" color:background-color="#fafad2" color:border-color="#000000" color:color="#000000" name="Send push &quot;Request received&quot; " scriptFormat="http://www.java.com/java">
+    <bpmn2:scriptTask id="_86641621-D67C-4B68-88DF-BE8880502604" drools:selectable="true" color:background-color="#fafad2" color:border-color="#000000" color:color="#000000" name="Send push &quot;Request received&quot; ">
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[Send push "Request received" ]]></drools:metaValue>
@@ -69,11 +69,11 @@ System.out.println(&quot;decisioncomment = &quot; + kcontext.getVariable(&quot;d
       <bpmn2:incoming>_59A89727-E1C6-462E-8635-C70097AE674A</bpmn2:incoming>
       <bpmn2:outgoing>_FCB16A3D-1335-407D-9CE7-150BEFD51729</bpmn2:outgoing>
       <bpmn2:script>String targetURL = &quot;https://aerogear-seaqopen.rhcloud.com/ag-push/rest/sender&quot;;
-String applicationId = &quot;f35c9189-5fa1-4ed4-a3c2-fcb95a67d76b&quot;;
-String masterSecret = &quot;dccf7942-629c-4ba9-a499-48ac7d89af00&quot;;
-byte[] basicAuthData = Base64.encodeBase64(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
+String applicationId = &quot;0db1ae20-d4c2-4d12-b2b1-560724dc2af1&quot;;
+String masterSecret = &quot;aa8c2e85-05de-40e4-8f96-95a7beffb479&quot;;
+String basicAuthData = Base64.getEncoder().encodeToString(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
 String pushMessage = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Your request is processed with ID 'VG000&quot; + kcontext.getProcessInstance().getId() + &quot;'.\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
-
+System.out.println(&quot;Auth: &quot;+basicAuthData);
 System.out.println(&quot;Mensaje a enviar: &quot;+pushMessage);
 
 HttpURLConnection connection = null;  
@@ -84,8 +84,7 @@ HttpURLConnection connection = null;
     connection.setRequestMethod(&quot;POST&quot;);
     connection.setRequestProperty(&quot;Content-Type&quot;, &quot;application/json&quot;);
     connection.setRequestProperty(&quot;Accept&quot;, &quot;application/json&quot;);
-    //connection.setRequestProperty(&quot;Authorization&quot;, &quot;Basic &quot; + basicAuthData);
-    connection.setRequestProperty(&quot;Authorization&quot;, &quot;Basic YjdjNmZlMTItN2ZhYi00NDg2LTk2ZjktMjIwN2QzYTY2NTgwOjNmNDQzZjUzLWIxYmYtNDc3NS04MDM4LTI1YmI0MGViZDQ1MA==&quot;);
+    connection.setRequestProperty(&quot;Authorization&quot;, &quot;Basic &quot; + basicAuthData);
     
     connection.setUseCaches(false);
     connection.setDoOutput(true);
@@ -244,7 +243,7 @@ HttpURLConnection connection = null;
       <bpmn2:outgoing>_459CD5C4-3CEB-4EA4-8596-64B8D96B5EB2</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
     <bpmn2:sequenceFlow id="_63D5A2CA-8745-4F94-84CF-6762D8806DCE" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" sourceRef="_08DDB1FA-668B-4F78-9A56-7AD47B8121A1" targetRef="_DDE36F1E-9077-45A4-9DBF-043D216E61A8"/>
-    <bpmn2:scriptTask id="_03145B48-9D9E-44CA-BF64-DD835867F107" drools:selectable="true" color:background-color="#fafad2" color:border-color="#000000" color:color="#000000" name="Send push &quot;Request approved&quot;" scriptFormat="http://www.java.com/java">
+    <bpmn2:scriptTask id="_03145B48-9D9E-44CA-BF64-DD835867F107" drools:selectable="true" color:background-color="#fafad2" color:border-color="#000000" color:color="#000000" name="Send push &quot;Request approved&quot;" scriptFormat="http://www.mvel.org/2.0">
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[Send push "Request approved"]]></drools:metaValue>
@@ -253,11 +252,11 @@ HttpURLConnection connection = null;
       <bpmn2:incoming>_8763555E-C2C4-4E8D-A5FD-F6142D8B78D9</bpmn2:incoming>
       <bpmn2:outgoing>_8A8CC377-2C84-44FD-9D72-0D1C478D3AF4</bpmn2:outgoing>
       <bpmn2:script>String targetURL = &quot;https://aerogear-seaqopen.rhcloud.com/ag-push/rest/sender&quot;;
-String applicationId = &quot;0f5c3c4c-db93-47d0-8e84-3042ed8dfae1&quot;;
-String masterSecret = &quot;4de67a06-01f6-49e6-a13f-8594a480d527&quot;;
-byte[] basicAuthData = Base64.encodeBase64(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
+String applicationId = &quot;0db1ae20-d4c2-4d12-b2b1-560724dc2af1&quot;;
+String masterSecret = &quot;aa8c2e85-05de-40e4-8f96-95a7beffb479&quot;;
+String basicAuthData = Base64.getEncoder().encodeToString(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
 String pushMessage = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Your request with ID 'VG000&quot; + kcontext.getProcessInstance().getId() + &quot;' has been approved.\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
-
+System.out.println(&quot;Auth: &quot;+basicAuthData);
 System.out.println(&quot;Mensaje a enviar: &quot;+pushMessage);
 
 HttpURLConnection connection = null;  
@@ -268,8 +267,7 @@ HttpURLConnection connection = null;
     connection.setRequestMethod(&quot;POST&quot;);
     connection.setRequestProperty(&quot;Content-Type&quot;, &quot;application/json&quot;);
     connection.setRequestProperty(&quot;Accept&quot;, &quot;application/json&quot;);
-    //connection.setRequestProperty(&quot;Authorization&quot;, &quot;Basic &quot; + basicAuthData);
-    connection.setRequestProperty(&quot;Authorization&quot;, &quot;Basic YjdjNmZlMTItN2ZhYi00NDg2LTk2ZjktMjIwN2QzYTY2NTgwOjNmNDQzZjUzLWIxYmYtNDc3NS04MDM4LTI1YmI0MGViZDQ1MA==&quot;);
+    connection.setRequestProperty(&quot;Authorization&quot;, &quot;Basic &quot; + basicAuthData);
     
     connection.setUseCaches(false);
     connection.setDoOutput(true);
@@ -312,11 +310,11 @@ HttpURLConnection connection = null;
       <bpmn2:incoming>_459CD5C4-3CEB-4EA4-8596-64B8D96B5EB2</bpmn2:incoming>
       <bpmn2:outgoing>_7DE03BF8-AE92-4B74-A7D7-B7EEBAA2FC8E</bpmn2:outgoing>
       <bpmn2:script>String targetURL = &quot;https://aerogear-seaqopen.rhcloud.com/ag-push/rest/sender&quot;;
-String applicationId = &quot;0f5c3c4c-db93-47d0-8e84-3042ed8dfae1&quot;;
-String masterSecret = &quot;4de67a06-01f6-49e6-a13f-8594a480d527&quot;;
-byte[] basicAuthData = Base64.encodeBase64(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
+String applicationId = &quot;0db1ae20-d4c2-4d12-b2b1-560724dc2af1&quot;;
+String masterSecret = &quot;aa8c2e85-05de-40e4-8f96-95a7beffb479&quot;;
+String basicAuthData = Base64.getEncoder().encodeToString(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
 String pushMessage = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Your request with ID 'VG000&quot; + kcontext.getProcessInstance().getId() + &quot;' has been rejected. Reason: &quot; + kcontext.getVariable(&quot;decisioncomment&quot;) + &quot;\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
-
+System.out.println(&quot;Auth: &quot;+basicAuthData);
 System.out.println(&quot;Mensaje a enviar: &quot;+pushMessage);
 
 HttpURLConnection connection = null;  
@@ -327,8 +325,8 @@ HttpURLConnection connection = null;
     connection.setRequestMethod(&quot;POST&quot;);
     connection.setRequestProperty(&quot;Content-Type&quot;, &quot;application/json&quot;);
     connection.setRequestProperty(&quot;Accept&quot;, &quot;application/json&quot;);
-    //connection.setRequestProperty(&quot;Authorization&quot;, &quot;Basic &quot; + basicAuthData);
-    connection.setRequestProperty(&quot;Authorization&quot;, &quot;Basic YjdjNmZlMTItN2ZhYi00NDg2LTk2ZjktMjIwN2QzYTY2NTgwOjNmNDQzZjUzLWIxYmYtNDc3NS04MDM4LTI1YmI0MGViZDQ1MA==&quot;);
+    connection.setRequestProperty(&quot;Authorization&quot;, &quot;Basic &quot; + basicAuthData);
+    
     
     connection.setUseCaches(false);
     connection.setDoOutput(true);
