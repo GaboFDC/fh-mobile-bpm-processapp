@@ -51,7 +51,8 @@
       </bpmn2:extensionElements>
       <bpmn2:incoming>_E90E4E72-2594-4863-AAB0-F1BB8B849883</bpmn2:incoming>
       <bpmn2:outgoing>_59A89727-E1C6-462E-8635-C70097AE674A</bpmn2:outgoing>
-      <bpmn2:script>System.out.println(&quot;Process instance with ID &quot; + kcontext.getProcessInstance().getId() + &quot; started.&quot;);
+      <bpmn2:script>System.out.println(&quot;SEAQ&quot;);
+System.out.println(&quot;Process instance with ID &quot; + kcontext.getProcessInstance().getId() + &quot; started.&quot;);
 System.out.println(&quot;firstname = &quot; + kcontext.getVariable(&quot;firstname&quot;));
 System.out.println(&quot;lastname = &quot; + kcontext.getVariable(&quot;lastname&quot;));
 System.out.println(&quot;request = &quot; + kcontext.getVariable(&quot;request&quot;));
@@ -73,7 +74,7 @@ String masterSecret = &quot;dccf7942-629c-4ba9-a499-48ac7d89af00&quot;;
 byte[] basicAuthData = Base64.encodeBase64(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
 String = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Your request is processed with ID 'VG000&quot; + kcontext.getProcessInstance().getId() + &quot;'.\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
 
-System.out.println(&quot;Mensaje a enviar: &quot;+pushMessage)
+System.out.println(&quot;Mensaje a enviar: &quot;+pushMessage);
 
 HttpURLConnection connection = null;  
   try {
@@ -257,7 +258,7 @@ String masterSecret = &quot;4de67a06-01f6-49e6-a13f-8594a480d527&quot;;
 byte[] basicAuthData = Base64.encodeBase64(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
 String pushMessage = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Your request with ID 'VG000&quot; + kcontext.getProcessInstance().getId() + &quot;' has been approved.\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
 
-System.out.println(&quot;Mensaje a enviar: &quot;+pushMessage)
+System.out.println(&quot;Mensaje a enviar: &quot;+pushMessage);
 
 HttpURLConnection connection = null;  
   try {
@@ -316,7 +317,7 @@ String masterSecret = &quot;4de67a06-01f6-49e6-a13f-8594a480d527&quot;;
 byte[] basicAuthData = Base64.encodeBase64(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
 String pushMessage = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Your request with ID 'VG000&quot; + kcontext.getProcessInstance().getId() + &quot;' has been rejected. Reason: &quot; + kcontext.getVariable(&quot;decisioncomment&quot;) + &quot;\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
 
-System.out.println(&quot;Mensaje a enviar: &quot;+pushMessage)
+System.out.println(&quot;Mensaje a enviar: &quot;+pushMessage);
 
 HttpURLConnection connection = null;  
   try {
