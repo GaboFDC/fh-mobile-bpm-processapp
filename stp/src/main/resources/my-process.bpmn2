@@ -72,7 +72,7 @@ System.out.println(&quot;decisioncomment = &quot; + kcontext.getVariable(&quot;d
 String applicationId = &quot;f35c9189-5fa1-4ed4-a3c2-fcb95a67d76b&quot;;
 String masterSecret = &quot;dccf7942-629c-4ba9-a499-48ac7d89af00&quot;;
 byte[] basicAuthData = Base64.encodeBase64(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
-String = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Your request is processed with ID 'VG000&quot; + kcontext.getProcessInstance().getId() + &quot;'.\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
+String pushMessage = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Your request is processed with ID 'VG000&quot; + kcontext.getProcessInstance().getId() + &quot;'.\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
 
 System.out.println(&quot;Mensaje a enviar: &quot;+pushMessage);
 
