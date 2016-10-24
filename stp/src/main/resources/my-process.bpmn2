@@ -68,9 +68,9 @@ System.out.println(&quot;decisioncomment = &quot; + kcontext.getVariable(&quot;d
       </bpmn2:extensionElements>
       <bpmn2:incoming>_59A89727-E1C6-462E-8635-C70097AE674A</bpmn2:incoming>
       <bpmn2:outgoing>_FCB16A3D-1335-407D-9CE7-150BEFD51729</bpmn2:outgoing>
-      <bpmn2:script>String targetURL = &quot;https://aerogear-seaqopen.rhcloud.com/ag-push/rest/sender&quot;;
-String applicationId = &quot;0db1ae20-d4c2-4d12-b2b1-560724dc2af1&quot;;
-String masterSecret = &quot;aa8c2e85-05de-40e4-8f96-95a7beffb479&quot;;
+      <bpmn2:script>String targetURL = &quot;https://seaq.openshift.feedhenry.com/api/v2/ag-push/rest/sender&quot;;
+String applicationId = &quot;5435083b-010f-4cb6-8b2a-63631c2647c4&quot;;
+String masterSecret = &quot;a0da461e-0f57-40ec-a522-0d8d8a574db6&quot;;
 byte[] bytesBasicAuthData = Base64.encodeBase64(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
 String basicAuthData = new String(bytesBasicAuthData);
 String pushMessage = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Your request is processed with ID 'VG000&quot; + kcontext.getProcessInstance().getId() + &quot;'.\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
@@ -257,9 +257,9 @@ HttpURLConnection connection = null;
       </bpmn2:extensionElements>
       <bpmn2:incoming>_8763555E-C2C4-4E8D-A5FD-F6142D8B78D9</bpmn2:incoming>
       <bpmn2:outgoing>_8A8CC377-2C84-44FD-9D72-0D1C478D3AF4</bpmn2:outgoing>
-      <bpmn2:script>String targetURL = &quot;https://aerogear-seaqopen.rhcloud.com/ag-push/rest/sender&quot;;
-String applicationId = &quot;0db1ae20-d4c2-4d12-b2b1-560724dc2af1&quot;;
-String masterSecret = &quot;aa8c2e85-05de-40e4-8f96-95a7beffb479&quot;;
+      <bpmn2:script>String targetURL = &quot;https://seaq.openshift.feedhenry.com/api/v2/ag-push/rest/sender&quot;;
+String applicationId = &quot;5435083b-010f-4cb6-8b2a-63631c2647c4&quot;;
+String masterSecret = &quot;a0da461e-0f57-40ec-a522-0d8d8a574db6&quot;;
 byte[] bytesBasicAuthData = Base64.encodeBase64(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
 String basicAuthData = new String(bytesBasicAuthData);
 String pushMessage = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Your request with ID 'VG000&quot; + kcontext.getProcessInstance().getId() + &quot;' has been approved.\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
@@ -316,9 +316,9 @@ HttpURLConnection connection = null;
       </bpmn2:extensionElements>
       <bpmn2:incoming>_459CD5C4-3CEB-4EA4-8596-64B8D96B5EB2</bpmn2:incoming>
       <bpmn2:outgoing>_7DE03BF8-AE92-4B74-A7D7-B7EEBAA2FC8E</bpmn2:outgoing>
-      <bpmn2:script>String targetURL = &quot;https://aerogear-seaqopen.rhcloud.com/ag-push/rest/sender&quot;;
-String applicationId = &quot;0db1ae20-d4c2-4d12-b2b1-560724dc2af1&quot;;
-String masterSecret = &quot;aa8c2e85-05de-40e4-8f96-95a7beffb479&quot;;
+      <bpmn2:script>String targetURL = &quot;https://seaq.openshift.feedhenry.com/api/v2/ag-push/rest/sender&quot;;
+String applicationId = &quot;5435083b-010f-4cb6-8b2a-63631c2647c4&quot;;
+String masterSecret = &quot;a0da461e-0f57-40ec-a522-0d8d8a574db6&quot;;
 byte[] bytesBasicAuthData = Base64.encodeBase64(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
 String basicAuthData = new String(bytesBasicAuthData);
 String pushMessage = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Your request with ID 'VG000&quot; + kcontext.getProcessInstance().getId() + &quot;' has been rejected. Reason: &quot; + kcontext.getVariable(&quot;decisioncomment&quot;) + &quot;\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
