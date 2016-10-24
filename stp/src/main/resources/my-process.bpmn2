@@ -68,7 +68,7 @@ System.out.println(&quot;decisioncomment = &quot; + kcontext.getVariable(&quot;d
       </bpmn2:extensionElements>
       <bpmn2:incoming>_59A89727-E1C6-462E-8635-C70097AE674A</bpmn2:incoming>
       <bpmn2:outgoing>_FCB16A3D-1335-407D-9CE7-150BEFD51729</bpmn2:outgoing>
-      <bpmn2:script>String targetURL = &quot;https://seaq.openshift.feedhenry.com/api/v2/ag-push/rest/sender&quot;;
+      <bpmn2:script>String targetURL = &quot;https://aerogear-seaqopen.rhcloud.com/ag-push/rest/sender&quot;;
 String applicationId = &quot;f35c9189-5fa1-4ed4-a3c2-fcb95a67d76b&quot;;
 String masterSecret = &quot;dccf7942-629c-4ba9-a499-48ac7d89af00&quot;;
 byte[] basicAuthData = Base64.encodeBase64(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
@@ -252,7 +252,7 @@ HttpURLConnection connection = null;
       </bpmn2:extensionElements>
       <bpmn2:incoming>_8763555E-C2C4-4E8D-A5FD-F6142D8B78D9</bpmn2:incoming>
       <bpmn2:outgoing>_8A8CC377-2C84-44FD-9D72-0D1C478D3AF4</bpmn2:outgoing>
-      <bpmn2:script>String targetURL = &quot;https://seaq.openshift.feedhenry.com/api/v2/ag-push/rest/sender&quot;;
+      <bpmn2:script>String targetURL = &quot;https://aerogear-seaqopen.rhcloud.com/ag-push/rest/sender&quot;;
 String applicationId = &quot;0f5c3c4c-db93-47d0-8e84-3042ed8dfae1&quot;;
 String masterSecret = &quot;4de67a06-01f6-49e6-a13f-8594a480d527&quot;;
 byte[] basicAuthData = Base64.encodeBase64(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
@@ -311,7 +311,7 @@ HttpURLConnection connection = null;
       </bpmn2:extensionElements>
       <bpmn2:incoming>_459CD5C4-3CEB-4EA4-8596-64B8D96B5EB2</bpmn2:incoming>
       <bpmn2:outgoing>_7DE03BF8-AE92-4B74-A7D7-B7EEBAA2FC8E</bpmn2:outgoing>
-      <bpmn2:script>String targetURL = &quot;https://seaq.openshift.feedhenry.com/api/v2/ag-push/rest/sender&quot;;
+      <bpmn2:script>String targetURL = &quot;https://aerogear-seaqopen.rhcloud.com/ag-push/rest/sender&quot;;
 String applicationId = &quot;0f5c3c4c-db93-47d0-8e84-3042ed8dfae1&quot;;
 String masterSecret = &quot;4de67a06-01f6-49e6-a13f-8594a480d527&quot;;
 byte[] basicAuthData = Base64.encodeBase64(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
