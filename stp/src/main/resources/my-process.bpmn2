@@ -73,7 +73,7 @@ String applicationId = &quot;5435083b-010f-4cb6-8b2a-63631c2647c4&quot;;
 String masterSecret = &quot;a0da461e-0f57-40ec-a522-0d8d8a574db6&quot;;
 byte[] bytesBasicAuthData = Base64.encodeBase64(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
 String basicAuthData = new String(bytesBasicAuthData);
-String pushMessage = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Su solicitud esta procesando: ID 'SE-0&quot; + kcontext.getProcessInstance().getId() + &quot;'.\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
+String pushMessage = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Solicitud en proceso: ID 'SE-0&quot; + kcontext.getProcessInstance().getId() + &quot;'.\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
 System.out.println(&quot;Auth: &quot;+basicAuthData);
 System.out.println(&quot;Mensaje a enviar: &quot;+pushMessage);
 
@@ -257,7 +257,7 @@ String applicationId = &quot;5435083b-010f-4cb6-8b2a-63631c2647c4&quot;;
 String masterSecret = &quot;a0da461e-0f57-40ec-a522-0d8d8a574db6&quot;;
 byte[] bytesBasicAuthData = Base64.encodeBase64(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
 String basicAuthData = new String(bytesBasicAuthData);
-String pushMessage = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Su solicitud con ID 'SE-0&quot; + kcontext.getProcessInstance().getId() + &quot;' ha sido aprobada.\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
+String pushMessage = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Solicitud 'SE-0&quot; + kcontext.getProcessInstance().getId() + &quot;' aprobada.\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
 System.out.println(&quot;Auth: &quot;+basicAuthData);
 System.out.println(&quot;Mensaje a enviar: &quot;+pushMessage);
 
@@ -316,7 +316,7 @@ String applicationId = &quot;5435083b-010f-4cb6-8b2a-63631c2647c4&quot;;
 String masterSecret = &quot;a0da461e-0f57-40ec-a522-0d8d8a574db6&quot;;
 byte[] bytesBasicAuthData = Base64.encodeBase64(new String(applicationId + &quot;:&quot; + masterSecret).getBytes());
 String basicAuthData = new String(bytesBasicAuthData);
-String pushMessage = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Su solicitud con ID 'SE-0&quot; + kcontext.getProcessInstance().getId() + &quot;' ha sido rechazada. Comentario: &quot; + kcontext.getVariable(&quot;decisioncomment&quot;) + &quot;\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
+String pushMessage = &quot;{\&quot;message\&quot;: {\&quot;alert\&quot;: \&quot;Solicitud 'SE-0&quot; + kcontext.getProcessInstance().getId() + &quot;' rechazada.\&quot;,\&quot;sound\&quot;: \&quot;default\&quot;}}&quot;;
 System.out.println(&quot;Auth: &quot;+basicAuthData);
 System.out.println(&quot;Mensaje a enviar: &quot;+pushMessage);
 
