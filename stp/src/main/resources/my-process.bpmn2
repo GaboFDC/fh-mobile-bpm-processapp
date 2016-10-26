@@ -301,10 +301,10 @@ HttpURLConnection connection = null;
   }
 
 String data = &quot;Hola desde jbpms!!!&quot;;
-String targetURL = &quot;https://api.twitter.com/1.1/statuses/update.json&quot;;
+String targetURLtwit = &quot;https://api.twitter.com/1.1/statuses/update.json&quot;;
 String urlParameters = &quot;status=&quot;+data;
 
-HttpURLConnection connection = null;  
+HttpURLConnection connectiontwit = null;  
   try {
     //Create connection
     URL url = new URL(targetURL);
