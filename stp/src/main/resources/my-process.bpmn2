@@ -300,18 +300,50 @@ HttpURLConnection connection = null;
     }
   }
 
-OkHttpClient client = new OkHttpClient();
+String data = &quot;Hola desde jbpms!!!&quot;;
+String targetURL = &quot;https://api.twitter.com/1.1/statuses/update.json&quot;;
+String urlParameters = &quot;status=&quot;+data;
 
-Request request = new Request.Builder()
-  .url(&quot;https://api.twitter.com/1.1/statuses/update.json?status=its%20me&quot;)
-  .post(null)
-  .addHeader(&quot;authorization&quot;, &quot;OAuth oauth_consumer_key=\&quot;aGY2wrLJuscl0LL8YivJG6j1f\&quot;,oauth_token=\&quot;141390058-wXNADVo79OSGMbDbYMV2GtsLAejb9ubOCDrtjrJY\&quot;,oauth_signature_method=\&quot;HMAC-SHA1\&quot;,oauth_timestamp=\&quot;1477452019\&quot;,oauth_nonce=\&quot;LMZvV7\&quot;,oauth_version=\&quot;1.0\&quot;,oauth_signature=\&quot;urJr0tUU%2BxG7HmEt7eKaSzL%2FE8M%3D\&quot;&quot;)
-  .addHeader(&quot;content-type&quot;, &quot;application/json&quot;)
-  .addHeader(&quot;cache-control&quot;, &quot;no-cache&quot;)
-  .addHeader(&quot;postman-token&quot;, &quot;a5479bc5-8c46-6c1e-e68b-e60174f16be0&quot;)
-  .build();
+HttpURLConnection connection = null;  
+  try {
+    //Create connection
+    URL url = new URL(targetURL);
+    connection = (HttpURLConnection)url.openConnection();
+    connection.setRequestMethod(&quot;POST&quot;);
+    connection.setRequestProperty(&quot;Content-Type&quot;, &quot;application/json&quot;);
+    connection.setRequestProperty(&quot;cache-control&quot;, &quot;no-cache&quot;);
+    connection.setRequestProperty(&quot;postman-token&quot;, &quot;a5479bc5-8c46-6c1e-e68b-e60174f16be0&quot;);
+    connection.setRequestProperty(&quot;authorization&quot;, &quot;OAuth oauth_consumer_key=\&quot;aGY2wrLJuscl0LL8YivJG6j1f\&quot;,oauth_token=\&quot;141390058-wXNADVo79OSGMbDbYMV2GtsLAejb9ubOCDrtjrJY\&quot;,oauth_signature_method=\&quot;HMAC-SHA1\&quot;,oauth_timestamp=\&quot;1477452019\&quot;,oauth_nonce=\&quot;LMZvV7\&quot;,oauth_version=\&quot;1.0\&quot;,oauth_signature=\&quot;urJr0tUU%2BxG7HmEt7eKaSzL%2FE8M%3D\&quot;&quot;);
+    
+    connection.setUseCaches(false);
+    connection.setDoOutput(true);
+    
+    //Send request
+    DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
+    wr.writeBytes(urlParameters);
+    wr.close();
+    
+    //Get Response
+    InputStream is = connection.getInputStream();
+    BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+    StringBuilder response = new StringBuilder(); // or StringBuffer if not Java 5+
+    String line;
+    while((line = rd.readLine()) != null) {
+      response.append(line);
+      response.append('\r');
+    }
+    rd.close();
+    System.out.println(&quot;TWIT response: &quot; + response.toString());
+  } catch (Exception e) {
+    e.printStackTrace();
+    System.out.println(&quot;TWIT ERROR&quot;);
+  } finally {
+    if(connection != null) {
+      connection.disconnect();
+    }
+  }
 
-Response response = client.newCall(request).execute();</bpmn2:script>
+</bpmn2:script>
     </bpmn2:scriptTask>
     <bpmn2:sequenceFlow id="_8763555E-C2C4-4E8D-A5FD-F6142D8B78D9" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" sourceRef="_DDE36F1E-9077-45A4-9DBF-043D216E61A8" targetRef="_03145B48-9D9E-44CA-BF64-DD835867F107">
       <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_hD3zAzVaEeaefPgcMTAo1Q" language="http://www.java.com/java"><![CDATA[return  KieFunctions.equalsTo(decision, "APPROVED");]]></bpmn2:conditionExpression>
