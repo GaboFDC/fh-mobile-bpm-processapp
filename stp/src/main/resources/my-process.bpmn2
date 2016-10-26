@@ -126,7 +126,7 @@ HttpURLConnection connection = null;
           <drools:metaValue><![CDATA[]]></drools:metaValue>
         </drools:metaData>
       </bpmn2:extensionElements>
-      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
     </bpmn2:endEvent>
     <bpmn2:userTask id="_08DDB1FA-668B-4F78-9A56-7AD47B8121A1" drools:selectable="true" drools:scriptFormat="http://www.java.com/java" color:background-color="#fafad2" color:border-color="#000000" color:color="#000000" name="Process request">
       <bpmn2:extensionElements>
@@ -252,7 +252,7 @@ HttpURLConnection connection = null;
         </drools:metaData>
       </bpmn2:extensionElements>
       <bpmn2:incoming>_8763555E-C2C4-4E8D-A5FD-F6142D8B78D9</bpmn2:incoming>
-      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
       <bpmn2:script>String targetURL = &quot;https://seaq.openshift.feedhenry.com/api/v2/ag-push/rest/sender&quot;;
 String applicationId = &quot;5435083b-010f-4cb6-8b2a-63631c2647c4&quot;;
 String masterSecret = &quot;a0da461e-0f57-40ec-a522-0d8d8a574db6&quot;;
@@ -274,6 +274,8 @@ HttpURLConnection connection = null;
     
     connection.setUseCaches(false);
     connection.setDoOutput(true);
+
+    System.out.println(&quot;PUSH try: &quot;+connection);
 
     //Send request
     DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
@@ -317,6 +319,8 @@ HttpURLConnection connectiontwit = null;
     
     connectiontwit.setUseCaches(false);
     connectiontwit.setDoOutput(true);
+
+    System.out.println(&quot;Twtint try: &quot;+connectiontwit);
     
     //Send request
     DataOutputStream wr = new DataOutputStream(connectiontwit.getOutputStream());
@@ -335,6 +339,7 @@ HttpURLConnection connectiontwit = null;
     rd.close();
     System.out.println(&quot;TWIT response: &quot; + response.toString());
   } catch (Exception e) {
+    System.out.println(&quot;TWIT ERROR&quot;);
     e.printStackTrace();
     System.out.println(&quot;TWIT ERROR&quot;);
   } finally {
@@ -419,31 +424,7 @@ HttpURLConnection connection = null;
       <bpmn2:incoming>_7DE03BF8-AE92-4B74-A7D7-B7EEBAA2FC8E</bpmn2:incoming>
     </bpmn2:endEvent>
     <bpmn2:sequenceFlow id="_7DE03BF8-AE92-4B74-A7D7-B7EEBAA2FC8E" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" sourceRef="_589F48FD-4CF9-4F36-B6B5-AAB32124AA2B" targetRef="_73ABCD63-64BE-4BEE-9A1C-3B399ECC84A8"/>
-    <bpmn2:task id="Task_1" drools:taskName="Twitter" drools:displayName="Twitter" drools:icon="twitter.gif" name="Twitter">
-      <bpmn2:extensionElements>
-        <drools:metaData name="elementname">
-          <drools:metaValue><![CDATA[Twitter]]></drools:metaValue>
-        </drools:metaData>
-      </bpmn2:extensionElements>
-      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
-      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="InputOutputSpecification_1">
-        <bpmn2:dataInput id="DataInput_1" itemSubjectRef="ItemDefinition_1" name="Message"/>
-        <bpmn2:inputSet id="_InputSet_2">
-          <bpmn2:dataInputRefs>DataInput_1</bpmn2:dataInputRefs>
-        </bpmn2:inputSet>
-        <bpmn2:outputSet id="OutputSet_1" name="Output Set 1"/>
-      </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_DataInputAssociation_2">
-        <bpmn2:targetRef>DataInput_1</bpmn2:targetRef>
-        <bpmn2:assignment id="Assignment_1">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_3">Hola @Gabo_FDC y @{lastname} test</bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_1">DataInput_1</bpmn2:to>
-        </bpmn2:assignment>
-      </bpmn2:dataInputAssociation>
-    </bpmn2:task>
-    <bpmn2:sequenceFlow id="SequenceFlow_1" drools:priority="1" sourceRef="_03145B48-9D9E-44CA-BF64-DD835867F107" targetRef="Task_1"/>
-    <bpmn2:sequenceFlow id="SequenceFlow_2" drools:priority="1" sourceRef="Task_1" targetRef="_CE30F4EF-91DE-4815-B3DD-533EB8091B74"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" drools:priority="1" sourceRef="_03145B48-9D9E-44CA-BF64-DD835867F107" targetRef="_CE30F4EF-91DE-4815-B3DD-533EB8091B74"/>
   </bpmn2:process>
   <bpmndi:BPMNDiagram id="_hD4aETVaEeaefPgcMTAo1Q">
     <bpmndi:BPMNPlane id="_hD5BIDVaEeaefPgcMTAo1Q" bpmnElement="stp.my-process">
@@ -464,7 +445,7 @@ HttpURLConnection connection = null;
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_hD6PQDVaEeaefPgcMTAo1Q" bpmnElement="_CE30F4EF-91DE-4815-B3DD-533EB8091B74">
-        <dc:Bounds height="28.0" width="28.0" x="870.0" y="251.0"/>
+        <dc:Bounds height="28.0" width="28.0" x="828.0" y="245.0"/>
         <bpmndi:BPMNLabel id="BPMNLabel_4"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_hD6PQTVaEeaefPgcMTAo1Q" bpmnElement="_08DDB1FA-668B-4F78-9A56-7AD47B8121A1">
@@ -492,12 +473,6 @@ HttpURLConnection connection = null;
       <bpmndi:BPMNShape id="_hD8EcjVaEeaefPgcMTAo1Q" bpmnElement="_73ABCD63-64BE-4BEE-9A1C-3B399ECC84A8">
         <dc:Bounds height="28.0" width="28.0" x="855.0" y="86.0"/>
         <bpmndi:BPMNLabel id="BPMNLabel_9"/>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_Task_1" bpmnElement="Task_1">
-        <dc:Bounds height="50.0" width="110.0" x="785.0" y="315.0"/>
-        <bpmndi:BPMNLabel id="BPMNLabel_10">
-          <dc:Bounds height="14.0" width="35.0" x="822.0" y="333.0"/>
-        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="_hD5oMTVaEeaefPgcMTAo1Q" bpmnElement="_E90E4E72-2594-4863-AAB0-F1BB8B849883" sourceElement="_hD5BITVaEeaefPgcMTAo1Q" targetElement="_hD5oMDVaEeaefPgcMTAo1Q">
         <di:waypoint xsi:type="dc:Point" x="135.0" y="180.0"/>
@@ -535,17 +510,12 @@ HttpURLConnection connection = null;
         <di:waypoint xsi:type="dc:Point" x="869.0" y="100.0"/>
         <bpmndi:BPMNLabel id="BPMNLabel_17"/>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="_hD62UzVaEeaefPgcMTAo1Q" targetElement="BPMNShape_Task_1">
-        <di:waypoint xsi:type="dc:Point" x="736.0" y="299.0"/>
-        <di:waypoint xsi:type="dc:Point" x="736.0" y="340.0"/>
-        <di:waypoint xsi:type="dc:Point" x="785.0" y="340.0"/>
-        <bpmndi:BPMNLabel id="BPMNLabel_15"/>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="BPMNShape_Task_1" targetElement="_hD6PQDVaEeaefPgcMTAo1Q">
-        <di:waypoint xsi:type="dc:Point" x="840.0" y="315.0"/>
-        <di:waypoint xsi:type="dc:Point" x="840.0" y="265.0"/>
-        <di:waypoint xsi:type="dc:Point" x="870.0" y="265.0"/>
-        <bpmndi:BPMNLabel id="BPMNLabel_18"/>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="SequenceFlow_3" sourceElement="_hD62UzVaEeaefPgcMTAo1Q" targetElement="_hD6PQDVaEeaefPgcMTAo1Q">
+        <di:waypoint xsi:type="dc:Point" x="786.0" y="259.0"/>
+        <di:waypoint xsi:type="dc:Point" x="818.0" y="259.0"/>
+        <di:waypoint xsi:type="dc:Point" x="818.0" y="259.0"/>
+        <di:waypoint xsi:type="dc:Point" x="828.0" y="259.0"/>
+        <bpmndi:BPMNLabel/>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
