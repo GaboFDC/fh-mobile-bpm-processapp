@@ -298,7 +298,20 @@ HttpURLConnection connection = null;
     if(connection != null) {
       connection.disconnect(); 
     }
-  }</bpmn2:script>
+  }
+
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+  .url(&quot;https://api.twitter.com/1.1/statuses/update.json?status=its%20me&quot;)
+  .post(null)
+  .addHeader(&quot;authorization&quot;, &quot;OAuth oauth_consumer_key=\&quot;aGY2wrLJuscl0LL8YivJG6j1f\&quot;,oauth_token=\&quot;141390058-wXNADVo79OSGMbDbYMV2GtsLAejb9ubOCDrtjrJY\&quot;,oauth_signature_method=\&quot;HMAC-SHA1\&quot;,oauth_timestamp=\&quot;1477452019\&quot;,oauth_nonce=\&quot;LMZvV7\&quot;,oauth_version=\&quot;1.0\&quot;,oauth_signature=\&quot;urJr0tUU%2BxG7HmEt7eKaSzL%2FE8M%3D\&quot;&quot;)
+  .addHeader(&quot;content-type&quot;, &quot;application/json&quot;)
+  .addHeader(&quot;cache-control&quot;, &quot;no-cache&quot;)
+  .addHeader(&quot;postman-token&quot;, &quot;a5479bc5-8c46-6c1e-e68b-e60174f16be0&quot;)
+  .build();
+
+Response response = client.newCall(request).execute();</bpmn2:script>
     </bpmn2:scriptTask>
     <bpmn2:sequenceFlow id="_8763555E-C2C4-4E8D-A5FD-F6142D8B78D9" drools:selectable="true" color:background-color="#000000" color:border-color="#000000" color:color="#000000" sourceRef="_DDE36F1E-9077-45A4-9DBF-043D216E61A8" targetRef="_03145B48-9D9E-44CA-BF64-DD835867F107">
       <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_hD3zAzVaEeaefPgcMTAo1Q" language="http://www.java.com/java"><![CDATA[return  KieFunctions.equalsTo(decision, "APPROVED");]]></bpmn2:conditionExpression>
@@ -415,7 +428,7 @@ HttpURLConnection connection = null;
       <bpmndi:BPMNShape id="_hD5oMjVaEeaefPgcMTAo1Q" bpmnElement="_86641621-D67C-4B68-88DF-BE8880502604">
         <dc:Bounds height="80.0" width="100.0" x="340.0" y="140.0"/>
         <bpmndi:BPMNLabel id="BPMNLabel_3">
-          <dc:Bounds height="22.0" width="91.0" x="344.0" y="169.0"/>
+          <dc:Bounds height="42.0" width="69.0" x="355.0" y="159.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_hD6PQDVaEeaefPgcMTAo1Q" bpmnElement="_CE30F4EF-91DE-4815-B3DD-533EB8091B74">
@@ -435,13 +448,13 @@ HttpURLConnection connection = null;
       <bpmndi:BPMNShape id="_hD62UzVaEeaefPgcMTAo1Q" bpmnElement="_03145B48-9D9E-44CA-BF64-DD835867F107">
         <dc:Bounds height="80.0" width="100.0" x="686.0" y="219.0"/>
         <bpmndi:BPMNLabel id="BPMNLabel_7">
-          <dc:Bounds height="22.0" width="91.0" x="690.0" y="248.0"/>
+          <dc:Bounds height="42.0" width="69.0" x="701.0" y="238.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_hD8EcDVaEeaefPgcMTAo1Q" bpmnElement="_589F48FD-4CF9-4F36-B6B5-AAB32124AA2B">
         <dc:Bounds height="80.0" width="100.0" x="710.0" y="60.0"/>
         <bpmndi:BPMNLabel id="BPMNLabel_8">
-          <dc:Bounds height="22.0" width="91.0" x="714.0" y="89.0"/>
+          <dc:Bounds height="42.0" width="69.0" x="725.0" y="79.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_hD8EcjVaEeaefPgcMTAo1Q" bpmnElement="_73ABCD63-64BE-4BEE-9A1C-3B399ECC84A8">
@@ -450,8 +463,8 @@ HttpURLConnection connection = null;
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_Task_1" bpmnElement="Task_1">
         <dc:Bounds height="50.0" width="110.0" x="785.0" y="315.0"/>
-        <bpmndi:BPMNLabel>
-          <dc:Bounds height="11.0" width="27.0" x="826.0" y="334.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_10">
+          <dc:Bounds height="14.0" width="35.0" x="822.0" y="333.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="_hD5oMTVaEeaefPgcMTAo1Q" bpmnElement="_E90E4E72-2594-4863-AAB0-F1BB8B849883" sourceElement="_hD5BITVaEeaefPgcMTAo1Q" targetElement="_hD5oMDVaEeaefPgcMTAo1Q">
@@ -494,189 +507,14 @@ HttpURLConnection connection = null;
         <di:waypoint xsi:type="dc:Point" x="736.0" y="299.0"/>
         <di:waypoint xsi:type="dc:Point" x="736.0" y="340.0"/>
         <di:waypoint xsi:type="dc:Point" x="785.0" y="340.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_15"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="BPMNShape_Task_1" targetElement="_hD6PQDVaEeaefPgcMTAo1Q">
         <di:waypoint xsi:type="dc:Point" x="840.0" y="315.0"/>
         <di:waypoint xsi:type="dc:Point" x="840.0" y="265.0"/>
         <di:waypoint xsi:type="dc:Point" x="870.0" y="265.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_18"/>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
-  <bpmn2:relationship id="Relationship_1" type="Simulation">
-    <bpmn2:extensionElements>
-      <bpsim:BPSimData>
-        <bpsim:Scenario xsi:type="bpsim:Scenario" id="Scenario_1" name="Scenario 1">
-          <bpsim:ScenarioParameters xsi:type="bpsim:ScenarioParameters" baseTimeUnit="ms"/>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="processStartEvent" id="ElementParameters_1">
-            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
-              <bpsim:WaitTime xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="1.0"/>
-              </bpsim:WaitTime>
-            </bpsim:TimeParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_542D7AEA-7830-4AD0-B496-6F97BC349D76" id="ElementParameters_2">
-            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
-              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
-                <bpsim:UniformDistribution max="1.0" min="0.0"/>
-              </bpsim:ProcessingTime>
-            </bpsim:TimeParameters>
-            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
-              <bpsim:UnitCost xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="0.0"/>
-              </bpsim:UnitCost>
-            </bpsim:CostParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_86641621-D67C-4B68-88DF-BE8880502604" id="ElementParameters_3">
-            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
-              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
-                <bpsim:UniformDistribution max="1.0" min="0.0"/>
-              </bpsim:ProcessingTime>
-            </bpsim:TimeParameters>
-            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
-              <bpsim:UnitCost xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="0.0"/>
-              </bpsim:UnitCost>
-            </bpsim:CostParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_CE30F4EF-91DE-4815-B3DD-533EB8091B74" id="ElementParameters_4">
-            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
-              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
-                <bpsim:UniformDistribution max="1.0" min="0.0"/>
-              </bpsim:ProcessingTime>
-            </bpsim:TimeParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_08DDB1FA-668B-4F78-9A56-7AD47B8121A1" id="ElementParameters_5">
-            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
-              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
-                <bpsim:UniformDistribution max="1.0" min="0.0"/>
-              </bpsim:ProcessingTime>
-            </bpsim:TimeParameters>
-            <bpsim:ResourceParameters xsi:type="bpsim:ResourceParameters">
-              <bpsim:Availability xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="0.0"/>
-              </bpsim:Availability>
-              <bpsim:Quantity xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="0.0"/>
-              </bpsim:Quantity>
-            </bpsim:ResourceParameters>
-            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
-              <bpsim:UnitCost xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="0.0"/>
-              </bpsim:UnitCost>
-            </bpsim:CostParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_03145B48-9D9E-44CA-BF64-DD835867F107" id="ElementParameters_6">
-            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
-              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
-                <bpsim:UniformDistribution max="1.0" min="0.0"/>
-              </bpsim:ProcessingTime>
-            </bpsim:TimeParameters>
-            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
-              <bpsim:UnitCost xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="0.0"/>
-              </bpsim:UnitCost>
-            </bpsim:CostParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_589F48FD-4CF9-4F36-B6B5-AAB32124AA2B" id="ElementParameters_7">
-            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
-              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
-                <bpsim:UniformDistribution max="1.0" min="0.0"/>
-              </bpsim:ProcessingTime>
-            </bpsim:TimeParameters>
-            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
-              <bpsim:UnitCost xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="0.0"/>
-              </bpsim:UnitCost>
-            </bpsim:CostParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_73ABCD63-64BE-4BEE-9A1C-3B399ECC84A8" id="ElementParameters_8">
-            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
-              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
-                <bpsim:UniformDistribution max="1.0" min="0.0"/>
-              </bpsim:ProcessingTime>
-            </bpsim:TimeParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_E90E4E72-2594-4863-AAB0-F1BB8B849883" id="ElementParameters_9">
-            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
-              <bpsim:Probability xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="100.0"/>
-              </bpsim:Probability>
-            </bpsim:ControlParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_59A89727-E1C6-462E-8635-C70097AE674A" id="ElementParameters_10">
-            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
-              <bpsim:Probability xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="100.0"/>
-              </bpsim:Probability>
-            </bpsim:ControlParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_FCB16A3D-1335-407D-9CE7-150BEFD51729" id="ElementParameters_11">
-            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
-              <bpsim:Probability xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="100.0"/>
-              </bpsim:Probability>
-            </bpsim:ControlParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_63D5A2CA-8745-4F94-84CF-6762D8806DCE" id="ElementParameters_12">
-            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
-              <bpsim:Probability xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="100.0"/>
-              </bpsim:Probability>
-            </bpsim:ControlParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_8763555E-C2C4-4E8D-A5FD-F6142D8B78D9" id="ElementParameters_13">
-            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
-              <bpsim:Probability xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="100.0"/>
-              </bpsim:Probability>
-            </bpsim:ControlParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_459CD5C4-3CEB-4EA4-8596-64B8D96B5EB2" id="ElementParameters_15">
-            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
-              <bpsim:Probability xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="100.0"/>
-              </bpsim:Probability>
-            </bpsim:ControlParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_7DE03BF8-AE92-4B74-A7D7-B7EEBAA2FC8E" id="ElementParameters_16">
-            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
-              <bpsim:Probability xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="100.0"/>
-              </bpsim:Probability>
-            </bpsim:ControlParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="Task_1" id="ElementParameters_17">
-            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
-              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
-                <bpsim:UniformDistribution max="1.0" min="0.0"/>
-              </bpsim:ProcessingTime>
-            </bpsim:TimeParameters>
-            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
-              <bpsim:UnitCost xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="0.0"/>
-              </bpsim:UnitCost>
-            </bpsim:CostParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="SequenceFlow_1" id="ElementParameters_18">
-            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
-              <bpsim:Probability xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="100.0"/>
-              </bpsim:Probability>
-            </bpsim:ControlParameters>
-          </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="SequenceFlow_2" id="ElementParameters_19">
-            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
-              <bpsim:Probability xsi:type="bpsim:Parameter">
-                <bpsim:FloatingParameter value="100.0"/>
-              </bpsim:Probability>
-            </bpsim:ControlParameters>
-          </bpsim:ElementParameters>
-        </bpsim:Scenario>
-      </bpsim:BPSimData>
-    </bpmn2:extensionElements>
-    <bpmn2:source>_hDqXoTVaEeaefPgcMTAo1Q</bpmn2:source>
-    <bpmn2:target>_hDqXoTVaEeaefPgcMTAo1Q</bpmn2:target>
-  </bpmn2:relationship>
 </bpmn2:definitions>
